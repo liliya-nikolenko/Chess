@@ -8,14 +8,14 @@ public class Main {
 		chess.arrangeFigures();
 		chess.printBoard();
 		System.out.println();
-		/*chess.move('a', 2, 'a', 3);		
+		chess.move('a', 2, 'a', 3);		
 		chess.printBoard();
 		System.out.println();
 		chess.move('c', 7, 'c', 6);		
 		chess.printBoard();
 		System.out.println();
-		chess.move('c', 7, 'c', 0);		
-		chess.printBoard();*/
+		chess.move('c', 7, 'c', 0);	// проверка ошибочного кода	
+		chess.printBoard();
 	}
 
 }
