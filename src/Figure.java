@@ -24,7 +24,7 @@ public class Figure {
 		this.posX = posX;
 		this.posY = posY;
 	}
-	public boolean isWhite() {
+	public boolean getIsWhite() {
 		return isWhite;
 	}
 	public void setWhite(boolean isWhite) {
