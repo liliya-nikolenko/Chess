@@ -3,9 +3,10 @@
  * текста
  */
 public class ParseMove {
-	public int [] parseMove(String s){
+	public int [] parseMove(String s){		
 		int [] moves = new int[4];
 		char[] c_arr = s.toCharArray();
+		try{
 		moves[0] = (int)c_arr[0];
 		moves[1] = (int)c_arr[1];
 		moves[2] = (int)c_arr[3];
@@ -14,6 +15,10 @@ public class ParseMove {
 		moves[1] -= 48;
 		moves[2] -= 96;
 		moves[3] -= 48;
+		}
+		catch(ArrayIndexOutOfBoundsException e){
+			System.out.println("Wrong move");
+		}
 		return moves;
 	}
 	public boolean checkMove(int [] m){
