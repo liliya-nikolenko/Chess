@@ -81,8 +81,8 @@ public class ChessLogic {
 				}
 			}
 			if(isNull &&
-			  (board.getBoard()[ni][nj]==null 
-			  || board.getBoard()[i][j].getIsWhite() != board.getBoard()[ni][nj].getIsWhite()) ){				
+			  (board.getBoard()[ni][nj]==null ||
+			   board.getBoard()[i][j].getIsWhite() != board.getBoard()[ni][nj].getIsWhite()) ){				
 				return true;
 			}				
 		}
@@ -91,11 +91,54 @@ public class ChessLogic {
 			
 		}	
 		else if(board.getBoard()[i][j].getFigure().getTitle().equals("b")){
-			
+			boolean isNull = false;
+			int dif = newPosX > oldPosX ? newPosX-oldPosX : oldPosX-newPosX;
+			if(dif == 1 &&
+			    	((newPosX == oldPosX+dif && newPosY == oldPosY+dif) ||
+					(newPosX == oldPosX-dif && newPosY == oldPosY-dif) ||
+					(newPosX == oldPosX-dif && newPosY == oldPosY+dif) ||
+					(newPosX == oldPosX+dif && newPosY == oldPosY-dif))){
+						isNull = true;
+			}				
+			else {
+				for(int k = 1; k < dif; k++){
+					isNull = false;
+					if(newPosX == oldPosX+dif && newPosY == oldPosY+dif){
+						if(board.getBoard()[i+k][j+k]==null)
+							isNull = true;
+					}
+					else if(newPosX == oldPosX-dif && newPosY == oldPosY-dif){
+						if(board.getBoard()[i-k][j-k]==null)
+							isNull = true;
+					}
+					else if(newPosX == oldPosX-dif && newPosY == oldPosY+dif){
+						if(board.getBoard()[i+k][j-k]==null)
+							isNull = true;
+					}
+					else if(newPosX == oldPosX+dif && newPosY == oldPosY-dif){
+						if(board.getBoard()[i-k][j+k]==null)
+							isNull = true;
+					}
+				}
+			}
+			if(isNull &&
+			  (board.getBoard()[ni][nj]==null ||
+			   board.getBoard()[i][j].getIsWhite() != board.getBoard()[ni][nj].getIsWhite()) ){				
+				return true;
+			}				
 		}	
 		else if(board.getBoard()[i][j].getFigure().getTitle().equals("K")){
-			
-		}	
+			if(((newPosX == oldPosX+1 || newPosX == oldPosX-1) && newPosY == oldPosY) ||
+			   ((newPosY == oldPosY+1 || newPosY == oldPosY-1) && newPosX == oldPosX) ||
+			   ((newPosY == oldPosY+1 || newPosY == oldPosY-1) && newPosX == oldPosX-1) ||
+			   ((newPosY == oldPosY+1 || newPosY == oldPosY-1) && newPosX == oldPosX+1)){		
+			 	if(board.getBoard()[ni][nj]==null ||
+			 	   board.getBoard()[i][j].getIsWhite() != board.getBoard()[ni][nj].getIsWhite()){				
+			 		   return true;
+						}
+			}
+		}
+				
 		else if(board.getBoard()[i][j].getFigure().getTitle().equals("Q")){
 			
 		}			
