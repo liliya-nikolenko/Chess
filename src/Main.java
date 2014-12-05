@@ -16,7 +16,7 @@ public class Main {
 	    while(true) { 
 	    	   System.out.println();
 	           System.out.println("next move is ");
-	           s = move.nextLine();
+	           s = move.nextLine();	           
 	           if(s.equals("end") == true)
 	        	   break;
 	           int [] temp = parse.parseMove(s);
@@ -25,9 +25,6 @@ public class Main {
 	        		   chess.move(temp[0], temp[1], temp[2], temp[3]);
 	           }
 	           chess.printBoard();     
-	    }    		
-				
-		
+	    }   	
 	}
-
 }
