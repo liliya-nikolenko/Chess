@@ -230,4 +230,8 @@ public class ChessLogic {
 		}			
 		return false;
 	}
+	
+	public boolean checkFigureColour(int oldPosX, int oldPosY){
+		return board.getBoard()[oldPosY - 1][oldPosX - 1].getIsWhite();
+	}
 }

@@ -59,11 +59,11 @@ public class ChessBoard {
 	public void move(int oldPosX, int oldPosY, int newPosX, int newPosY){
 		for(int i = 0; i < board.length; i++){
 			for(int j = 0; j < board.length; j++){
-				if(board[i][j]==null)
+				if(board[i][j] == null)
 					continue;
 				else{
 					if(board[i][j].getPosX() == oldPosX && board[i][j].getPosY() == oldPosY){							
-						board[newPosY-1][newPosX-1] = new Figure(board[i][j].getFigure(), board[i][j].getIsWhite(), newPosX, newPosY);						
+						board[newPosY - 1][newPosX - 1] = new Figure(board[i][j].getFigure(), board[i][j].getIsWhite(), newPosX, newPosY);						
 						board[i][j] = null;							
 					}
 				}					
